@@ -1,0 +1,10 @@
+package com.pcwk.ehr.user;
+
+public class UserVO {
+	//ctrl+shift+y : 소문자
+	//ctrl+shift+x : 대문자
+	private String userId  ; //사용자ID
+	private String name 	;//
+	private String password ;
+	private String regDt   ;
+}

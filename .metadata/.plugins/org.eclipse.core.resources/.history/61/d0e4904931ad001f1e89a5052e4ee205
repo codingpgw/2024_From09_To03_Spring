@@ -1,0 +1,21 @@
+package com.pcwk.ehr.user.service;
+
+import com.pcwk.ehr.user.UserDao;
+
+public class UserService {
+	
+	UserDao userDao;
+	
+	
+	public UserService() {
+
+	}
+
+	public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
+	}
+	
+	//전체 회원 등업
+	
+	
+}

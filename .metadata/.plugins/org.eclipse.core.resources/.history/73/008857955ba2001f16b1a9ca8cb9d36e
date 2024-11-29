@@ -1,0 +1,18 @@
+package com.pcwk.ehr.user;
+
+public class UserMain {
+
+	UserDao dao;
+	UserVO user;
+	
+	public UserMain() {
+		dao = new UserDao();
+		user = new UserVO("james01", "이상무01", "4321", "사용하지 않음");
+		
+	}
+	
+	public static void main(String[] args) {
+
+	}
+
+}

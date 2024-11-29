@@ -1,0 +1,47 @@
+/**
+ * Package Name : com.pcwk.ehr.user.service  <br/>
+ * Class Name: UserService.java 			 <br/>
+ * Description:  <br/>
+ * Modification imformation : 				 <br/> 
+ * ------------------------------------------<br/>
+ * 최초 생성일 : 2024-11-28						 <br/>
+ *
+ * ------------------------------------------<br/>
+ * @author :gy
+ * @since  :2024-09-09
+ * @version: 0.5
+ */
+package com.pcwk.ehr.user.service;
+
+import java.sql.SQLException;
+
+import com.pcwk.ehr.user.UserDao;
+/**
+ * @author gy
+ *
+ */
+public class UserService {
+	
+	UserDao userDao;
+	
+	
+	public UserService() {
+
+	}
+
+	public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
+	}
+	
+	//전체 회원 등업
+	public void upgradeLevels() throws SQLException{
+		//1. 전체 회원 조회
+		//2. BASIC, SILVER, GOLD 등업 조건
+		//		1. BASIC : 기입후 50-회 이상 로그인
+		//		2. SILVER: SILVER이면서 30회 이상 추천
+		//		3. GOLD  : 최고 등급
+		
+	}
+	
+}
+

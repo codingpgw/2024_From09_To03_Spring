@@ -1,0 +1,22 @@
+/**
+ * Package Name : com.pcwk.ehr.user.service  <br/>
+ * Class Name: UserService.java 			 <br/>
+ * Description:  <br/>
+ * Modification imformation : 				 <br/> 
+ * ------------------------------------------<br/>
+ * 최초 생성일 : 2024-11-28						 <br/>
+ *
+ * ------------------------------------------<br/>
+ * @author :gy
+ * @since  :2024-09-09
+ * @version: 0.5
+ */
+package com.pcwk.ehr.user.service;
+
+/**
+ * @author gy
+ *
+ */
+public class UserService {
+
+}

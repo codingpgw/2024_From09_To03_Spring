@@ -1,0 +1,32 @@
+package com.pcwk.ehr.user;
+
+import java.sql.SQLException;
+
+public class UserMain {
+
+	UserDao dao;
+	UserVO user;
+	
+	public UserMain() {
+		dao = new UserDao();
+		user = new UserVO("james01", "이상무01", "4321", "사용하지 않음");
+		
+	}
+	
+	public void doSave() {
+		System.out.println("doSave");
+		try {
+			dao.doSave(user);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void main(String[] args) {
+		UserMain main = new UserMain();
+		main.doSave();
+	}
+
+}

@@ -1,0 +1,16 @@
+package com.pcwk.ehr;
+
+import static org.junit.Assert.*;
+import org.apache.logging.*;
+
+import org.junit.Test;
+
+public class JUnitTest01 {
+	final Logger log = LogManager.getLogger(getClass());
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

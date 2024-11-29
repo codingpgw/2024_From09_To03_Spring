@@ -1,0 +1,114 @@
+package com.pcwk.ehr.user;
+
+import static org.junit.Assert.*;
+
+import java.sql.SQLException;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class UserDaoJUnit {
+	final Logger log = LogManager.getLogger(UserDao.class);
+	
+	UserDao dao;
+	UserVO userVO01;
+	UserVO userVO02;
+	UserVO userVO03;
+	
+	ApplicationContext context;
+
+	
+	@Before
+	public void setUp() throws Exception {
+		context = new GenericXmlApplicationContext("applicationContext.xml"); 
+		
+		//dao = (UserDao)context.getBean("userDao");
+		dao = context.getBean("userDao",UserDao.class);
+		userVO01 = new UserVO("james01", "이상무01", "4321", "사용하지 않음");
+		userVO02 = new UserVO("james02", "이상무02", "4321", "사용하지 않음");
+		userVO03 = new UserVO("james03", "이상무03", "4321", "사용하지 않음");
+	}
+	
+	@Test
+	public void getCount() throws SQLException {
+		//매번 동일 결과가 도출되도록 작성.
+		//0. 전체 삭제
+		//1. 건수 조회
+		//2. 한건 등록
+		//3. 건수 조회
+		dao.deleteAll();
+		
+		int count = dao.getCount();
+		assertEquals(0, count);
+		
+		dao.doSave(userVO01);
+		
+		count = dao.getCount();
+		assertEquals(1, count);
+		//4. 한건 등록
+		//5. 건수 조회
+		dao.doSave(userVO02);
+		
+		count = dao.getCount();
+		assertEquals(1, count);
+		//6. 한건 등록
+		//7. 건수 조회
+		dao.doSave(userVO03);
+		
+		count = dao.getCount();
+		assertEquals(1, count);
+	}
+	
+	@Ignore 
+	@Test
+	public void addAndGet() throws SQLException {
+		//매번 동일 결과가 도출되도록 작성.
+		//0. 전체 삭제
+		//1. 건수 조회
+		//2. 한 건 등록
+		//3. 건수 조회
+		//4. 한건 조회
+		//5. 등록데이터 입력데이터 비교
+		
+		//0
+		dao.deleteAll();
+		
+		//1 건수 : 0건
+		int count = dao.getCount();
+		assertEquals(0, count);
+		
+		//2. 단건등록
+		dao.doSave(userVO01);
+		
+		//3. 등록건수 조회
+		count = dao.getCount();
+		assertEquals(1, count);
+		
+		//4.
+		UserVO outVO01 = dao.doSelectOne(userVO01);
+		assertNotNull(outVO01);
+		
+		//5.
+		isSameUser(outVO01, userVO01);
+	}
+	
+	public void isSameUser(UserVO outVO01, UserVO userVO01) {
+		assertEquals(outVO01.getUserId(), userVO01.getUserId());
+		assertEquals(outVO01.getName(), userVO01.getName());
+		assertEquals(outVO01.getPassword(), userVO01.getPassword());
+	}
+	
+	@After
+	public void tearDown() throws Exception {
+		log.debug("===========================================");
+		log.debug("@after");
+		log.debug("===========================================");
+	}
+
+}

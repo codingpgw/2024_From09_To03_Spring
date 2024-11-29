@@ -1,0 +1,71 @@
+/**
+ * Package Name : com.pcwk.ehr.user <br/>
+ * Class Name: UserServiceJupiter.java <br/>
+ * Description:  <br/>
+ * Modification imformation : <br/> 
+ * ------------------------------------------<br/>
+ * 최초 생성일 : 2024-11-28<br/>
+ *
+ * ------------------------------------------<br/>
+ * @author :gy
+ * @since  :2024-09-09
+ * @version: 0.5
+ */
+package com.pcwk.ehr.user;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import com.pcwk.ehr.user.service.UserService;
+
+/**
+ * @author gy
+ *
+ */
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(locations = { "classpath:/applicationContext.xml" })
+class UserServiceJupiter {
+	final Logger log = LogManager.getLogger(getClass());
+
+	UserVO userVO01;
+	UserVO userVO02;
+	UserVO userVO03;
+	UserVO userVO04;
+	UserVO userVO05;
+	
+	@Autowired // 테스트 오브젝트가 만들어지고 나면 스프링 테스트 컨텍스트에 의해 자동으로 주입된다.
+	ApplicationContext context;
+	
+	@Autowired
+	UserService userService;
+	
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@BeforeEach
+	void setUp() throws Exception {
+	}
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@AfterEach
+	void tearDown() throws Exception {
+	}
+
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}

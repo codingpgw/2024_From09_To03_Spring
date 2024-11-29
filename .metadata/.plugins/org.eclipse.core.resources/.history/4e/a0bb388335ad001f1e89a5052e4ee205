@@ -1,0 +1,52 @@
+/**
+ * Package Name : com.pcwk.ehr.user <br/>
+ * Class Name: UserServiceJupiter.java <br/>
+ * Description:  <br/>
+ * Modification imformation : <br/> 
+ * ------------------------------------------<br/>
+ * 최초 생성일 : 2024-11-28<br/>
+ *
+ * ------------------------------------------<br/>
+ * @author :gy
+ * @since  :2024-09-09
+ * @version: 0.5
+ */
+package com.pcwk.ehr.user;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+/**
+ * @author gy
+ *
+ */
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(locations = { "classpath:/applicationContext.xml" })
+class UserServiceJupiter {
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@BeforeEach
+	void setUp() throws Exception {
+	}
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@AfterEach
+	void tearDown() throws Exception {
+	}
+
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}

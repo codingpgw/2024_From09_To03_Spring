@@ -1,0 +1,13 @@
+package com.pcwk.ehr.user;
+
+public class UserDao {
+	
+	//등록
+	public int doSave(UserVO inVO) {
+		int flag = 0;
+		
+		return flag;
+	}
+	
+	//단건조회
+}
