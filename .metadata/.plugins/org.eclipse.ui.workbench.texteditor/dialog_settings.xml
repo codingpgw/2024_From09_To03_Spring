@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="context:"/>
+		<item key="selection" value="Exception"/>
 		<list key="findhistory">
+			<item value="Exception"/>
 			<item value="context:"/>
 			<item value="context :"/>
 			<item value="context"/>

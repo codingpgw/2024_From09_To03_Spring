@@ -27,7 +27,7 @@ public abstract class UserDao {
 	 * sb.append("?,                        \n");
 	 * sb.append("SYSDATE )                 \n");
 	 */
-	public int doSave(UserVO inVO) throws ClassNotFoundException, SQLException {
+	public int doSave(UserVO inVO) throws ClassNotFoundException,SQLException{
 		//1. DB연결을 위한 Connection
 		//2. SQL을 담은 PreparedStatement,Statement를 생성
 		//3. PreparedStatement를 실행한다.
@@ -38,37 +38,59 @@ public abstract class UserDao {
 		int flag = 0;
 		
 		//1. : Connection getConnection()
-		Connection conn = getConnection();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
 		
-		StringBuilder sb = new StringBuilder(200);
-		sb.append("INSERT INTO member (      \n"); 
-		sb.append("user_id,                  \n"); 
-		sb.append("name,                     \n"); 
-		sb.append("password,                 \n"); 
-		sb.append("reg_dt ) VALUES           \n"); 
-		sb.append("(                         \n"); 
-		sb.append("?,                        \n"); 
-		sb.append("?,                        \n"); 
-		sb.append("?,                        \n"); 
-		sb.append("SYSDATE )                 \n"); 
-		System.out.println("2.sql :"+sb.toString());
+		try {
+			conn = getConnection();
+			conn.setAutoCommit(false);
+			
+			StringBuilder sb = new StringBuilder(200);
+			sb.append("INSERT INTO member (      \n"); 
+			sb.append("user_id,                  \n"); 
+			sb.append("name,                     \n"); 
+			sb.append("password,                 \n"); 
+			sb.append("reg_dt ) VALUES           \n"); 
+			sb.append("(                         \n"); 
+			sb.append("?,                        \n"); 
+			sb.append("?,                        \n"); 
+			sb.append("?,                        \n"); 
+			sb.append("SYSDATE )                 \n"); 
+			System.out.println("2.sql :"+sb.toString());
+			
+			//2.
+			pstmt = conn.prepareStatement(sb.toString());
+			
+			pstmt.setString(1, inVO.getUserId());
+			pstmt.setString(2, inVO.getName());
+			pstmt.setString(3, inVO.getPassword());
+			System.out.println("3.param : "+inVO.toString());
+			flag = pstmt.executeUpdate();
+			
+			conn.prepareStatement("update~~~");
+			
+			System.out.println("4.flag:"+flag);
+			//성공하면 commit;
+			conn.commit();
+		} catch (SQLException e) {
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+		}finally {
+			
+			//5 (4번 생략)
+			try {
+				conn.close();
+				pstmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
-		//2.
-		PreparedStatement pstmt = conn.prepareStatement(sb.toString());
-		//2.1 param 설정
-		pstmt.setString(1, inVO.getUserId());
-		pstmt.setString(2, inVO.getName());
-		pstmt.setString(3, inVO.getPassword());
-		
-		System.out.println("3.param :"+inVO.toString());
-		
-		//3
-		flag = pstmt.executeUpdate();
-		System.out.println("4.flag :"+flag);
-		
-		//5 (4번 생략)
-		pstmt.close();
-		conn.close();
 		
 		return flag;
 	}
