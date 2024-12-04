@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+    <!-- Target: Advice가 적용되는 실제 객체
+    
+     --> 
+     <bean id="memberImpl" class="com.pcwk.ehr.aspectj.MemberImpl"></bean>
+     
+     <!-- Advice: 부가 기능(예 : 로깅) -->
+     <bean id="loggingAdvice" class="com.pcwk.ehr.aspectj.LoggingAdvice"></bean>
+     
+     <!-- Pointcut
+        * com.pcwk.ehr..*Impl.do*(..)
+        
+        -* : return형
+        -com.pcwk.ehr : 패키지
+        -.. : 하위에 모든
+        -*Impl : 클래스 이름이 Impl로 끝나는 클래스
+        -do* : do로 시작하는 모든 메서드
+        -(..) : 모든 파라메터
+      -->
+     <aop:config>
+        <aop:aspect ref="loggingAdvice">
+            <aop:before method="logging"
+              pointcut="execution(* com.pcwk.ehr..*Impl.do*(..))"
+            
+            />
+        </aop:aspect>
+     </aop:config>
+</beans>
