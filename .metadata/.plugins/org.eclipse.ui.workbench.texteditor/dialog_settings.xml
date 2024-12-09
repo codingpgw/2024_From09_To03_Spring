@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="Exception"/>
+		<item key="selection" value="Servlet"/>
 		<list key="findhistory">
+			<item value="servlet"/>
+			<item value="mockito-all-version"/>
 			<item value="Exception"/>
 			<item value="context:"/>
 			<item value="context :"/>
