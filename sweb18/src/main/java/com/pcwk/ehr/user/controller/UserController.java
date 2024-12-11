@@ -40,7 +40,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/doRetrieve.do",
-					method = RequestMethod.POST)
+					method = RequestMethod.GET)
 	public String doRetrieve(HttpServletRequest req,
 			Model model) throws Exception {
 		String viewName = "user/user_list";
