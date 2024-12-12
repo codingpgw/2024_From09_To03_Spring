@@ -1,7 +1,6 @@
 INDEX VERSION 1.131+C:\Users\gy\OneDrive\πŸ≈¡ »≠∏È\JAP_20240909\04_SPRING\WORKSPACE\.metadata\.plugins\org.eclipse.jdt.core
 2179778236.index
 476603550.index
-4119332142.index
 380221534.index
 753485110.index
 1890824624.index
