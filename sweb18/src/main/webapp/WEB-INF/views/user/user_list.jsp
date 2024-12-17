@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Document</title>
+<title>회원목록</title>
   <style>
     table{
       width: 720px;
@@ -27,6 +27,7 @@
   </style>
 </head>
 <body>
+    <h2>회원 목록</h2>
     <table style="margin-bottom: 30px;" border="1">
       <thead align="center">
         <td style="padding-right:20px; padding-left: 20px;">50</td>
@@ -34,6 +35,10 @@
         <td style="padding-left: 20px; padding-right: 20px;"> </td>
     </thead>
     </table>
+    <div>
+        <input type="button" value="조회">
+        <input type="button" value="등록" id="moveToRegBtn">
+    </div>
     <table border="1">
       <thead>
         <th>번호</th>
@@ -60,5 +65,21 @@
         </c:forEach>
       </tbody>
     </table>
+    
+    <script>
+      document.getElementById("moveToRegBtn").addEventListener("click",function(){
+    	  console.log("moveToRegBtn click");
+    	  moveToReg();
+      });
+      
+      function moveToReg(){
+    	  console.log("moveToReg()");
+    	  
+    	  if(confirm('회원 등록 화면으로 이동하시겠습니까?') == false) return;
+    	  
+    	  window.location.href = "/ehr/user/user_reg_index.do";
+      }
+    </script>
+    
 </body>
 </html>

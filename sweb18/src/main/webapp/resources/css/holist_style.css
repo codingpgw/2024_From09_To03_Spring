@@ -1,0 +1,40 @@
+.container_list{
+  width:100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 10vh 80vh;
+  grid-template-areas: 
+    ". search search ."
+    "list result result ."
+    "list result result ."
+    "list result result .";
+}
+.search-menu {
+  grid-area: search;
+  display: flex;
+  align-items: center; /* 세로 가운데 정렬 */
+  gap: 10px; /* 요소 간격 설정 */
+  border: 1px solid black;
+}
+.department-list{
+  grid-area: list;
+}
+.search-result{
+  grid-area: result;
+}
+
+.local-select{
+  padding:8px 40px;
+  width: 33%;
+}
+.csearch-value{
+  width:350px;
+  height: 40px;
+}
+.detail-search {
+  width: 300px;
+  padding: 10px 20px;
+  font-size: 15px;
+  height: 40px; /* 입력 필드와 높이를 일치 */
+  box-sizing: border-box;
+}

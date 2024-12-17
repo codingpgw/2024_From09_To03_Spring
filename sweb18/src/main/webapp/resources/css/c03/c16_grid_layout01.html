@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8"/>
+  <style>
+    .items{
+      border: 1px solid #222;
+      padding:10px;
+      font-size:20px;
+      text-align: center;
+    }
+
+    .items:nth-child(even){
+      background-color: burlywood;
+    }
+    .container{
+      width:700px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      grid-template-rows: repeat(3,100px);
+      gap: 20px 30px;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>그리드</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="items">1</div>
+      <div class="items">2</div>
+      <div class="items">3</div>
+      <div class="items">4</div>
+      <div class="items">5</div>
+      <div class="items">6</div> 
+      <div class="items">7</div> 
+      <div class="items">8</div> 
+      <div class="items">9</div> 
+    </div>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-top: 20px;
+}
+
+div {
+  margin: 10px auto;
+  text-align: center;
+}
+
+div input[type="button"] {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+div input[type="button"]:hover {
+  background-color: #0056b3;
+}
+
+form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+form label {
+  font-weight: bold;
+  flex: 1;
+  color: #555;
+}
+
+form input, form select {
+  flex: 2;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;jhbv
+}
+
+form input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+form input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+form input[type="email"] {
+  padding: 8px;
+}
+
+form input:focus, form select:focus {
+  border-color: #007BFF;
+  outline: none;
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}

@@ -1,0 +1,128 @@
+body{
+  margin:0;
+  background-color: var(--background-color);
+}
+
+.navbar {
+  width:70%;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 추가: nav 태그를 부모 기준으로 수평 중앙 배치 */
+  background-color: var(--background-color);
+  padding: 8px 12px;
+  margin: 0 auto; /* 추가: margin으로 수평 가운데 배치 */
+}
+.search-box{
+  height: 40px;
+  width: 600px;
+  background:white;
+  border-radius: 40px;
+  padding: 10px;
+  border: 1px solid #f9deec;
+}
+
+.search-txt{
+  border: none;
+  background: none;
+  outline: none;
+  float:left;
+  padding:0px;
+  color:#797979;
+  font-size: 16px;
+  line-height: 20px;
+  width: 200px;
+}
+.search-btn{
+  color:#f9deec;
+  float:right;
+  width: 40px;
+  height:100%;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-menu {
+  width: 400px;
+  height: 500px;
+  display: none; /* 숨김 처리 */
+  position: absolute; /* 부모 요소 기준으로 위치 지정 */
+  top: 60px; /* 원하는 위치 지정 */
+  left: 73%; 
+  z-index: 1000; /* 높은 값으로 설정해 다른 요소 위에 표시 */
+  background-color: white; /* 메뉴 스타일링 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 시각적 구분을 위한 그림자 */
+}
+
+.show {
+  display : block;
+}
+.menu-box{
+  font-size: 20px;
+  margin: 20px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+}
+.login-box{
+  padding:30px 20px;
+  margin:10px;
+  margin-bottom: 20px;
+  background-color: lightgray;
+}
+.login-box a{
+  text-decoration: none;
+}
+
+.container{
+  display: grid;
+  align-items: stretch;
+  row-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, 50px);
+  grid-template-areas: 
+    "menu1 box"
+    "menu2 box"
+    "menu3 box"
+    "menu4 box";
+}
+
+.menu-item1{
+  grid-area: menu1;
+}
+.menu-item2{
+  grid-area: menu2;
+}
+.menu-item3{
+  grid-area: menu3;
+}
+.menu-item4{
+  grid-area: menu4;
+}
+.box{
+  grid-area: box;
+  display: flex;
+  align-items: center; /* 수직 중앙 정렬 */
+  justify-content: center; /* 수평 중앙 정렬 */
+}
+
+.simple-menu{
+  list-style: none;
+  margin:0 auto;
+  padding-left: 0;
+  display: flex;
+}
+
+.simple-menu li{
+  background-color: lightgreen;
+  padding:8px 80px;
+}
+
+li a{
+  text-decoration: none;
+  color:white;
+}
