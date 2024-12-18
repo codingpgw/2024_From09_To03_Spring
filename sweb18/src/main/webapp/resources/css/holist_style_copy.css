@@ -1,0 +1,117 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+.container_list {
+  display: grid;
+  grid-template-columns: 1fr 2fr 3fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "search search search"
+    "list result result";
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .container_list {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "search"
+      "list"
+      "result";
+  }
+}
+.local-select,
+.csearch-value,
+.detail-search {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.search-menu {
+  grid-area: search;
+  display: flex;
+  align-items: center; /* 세로 가운데 정렬 */
+  gap: 10px; /* 요소 간격 설정 */
+  border: 1px solid #ccc;
+  padding:20px;
+}
+.department-list{
+  grid-area: list;
+}
+.detail-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.detail-list li {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #222;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+.detail-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.detail-list a{
+  color:#222;
+  text-decoration: none;
+}
+.search-result{
+  grid-area: result;
+  border: 1px solid #ccc;
+}
+
+.local-select{
+  padding:8px 40px;
+  width: 33%;
+  border-radius: 5px;
+  margin-left: 30px;
+}
+.csearch-value{
+  width:350px;
+  height: 40px;
+  border-radius: 5px;
+}
+.detail-search {
+  width: 300px;
+  padding: 10px 20px;
+  font-size: 15px;
+  height: 40px; /* 입력 필드와 높이를 일치 */
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: #04AA6D;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.detail-search:hover {
+  background-color: #039e5a;
+}
+.detail-box {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
+.detail-box:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  transition: transform 0.2s ease;
+}

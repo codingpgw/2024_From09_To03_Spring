@@ -52,7 +52,7 @@ body{
   display: none; /* 숨김 처리 */
   position: absolute; /* 부모 요소 기준으로 위치 지정 */
   top: 60px; /* 원하는 위치 지정 */
-  left: 73%; 
+  right: 0px;
   z-index: 1000; /* 높은 값으로 설정해 다른 요소 위에 표시 */
   background-color: white; /* 메뉴 스타일링 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 시각적 구분을 위한 그림자 */
