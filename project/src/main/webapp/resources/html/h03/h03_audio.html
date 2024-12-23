@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>제목</title>
+  <style>
+    #playBtn{
+      color:blue;
+      border-radius: 5px;
+      padding: 15px 30px;
+      transition:10s;
+    }
+    #playBtn:hover{
+      background-color: black;
+    }
+  </style>
+  </head>
+  <body>
+  <h2>오디오</h2>
+  <hr/>
+    <audio id="audioPlayer">
+      <source src="/medias/spring.mp3" type="audio/mp3">
+    </audio> 
+
+    <button id="befBtn">-10</button>
+    <button id="playBtn">재생</button>
+    <button id="pauseBtn">일시정지</button>
+    <button id="preBtn">+10</button>
+    
+
+    <div>생성일: 2024. 12. 11</div>
+    <script>
+      let playButton = document.getElementById("playBtn");
+
+      document.getElementById("befBtn").addEventListener("click",function(){
+        document.getElementById("audioPlayer").currentTime -= 10;
+      })
+
+      document.getElementById("preBtn").addEventListener("click",function(){
+        document.getElementById("audioPlayer").currentTime += 10;
+      })     
+      document.getElementById("pauseBtn").addEventListener("click",function(){
+        console.log("pause");
+        document.getElementById("audioPlayer").pause();
+      })
+
+      playButton.addEventListener("click",function(){
+        console.log("play")
+        document.getElementById("audioPlayer").play();
+      })
+
+    </script>
+  </body>
+</html>

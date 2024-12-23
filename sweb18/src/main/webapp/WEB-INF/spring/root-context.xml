@@ -68,6 +68,7 @@
         <property name="username" value="scott"></property>
         <property name="password" value="pcwk"></property>
         
+        <!-- <property name="jdbcUrl" value="jdbc:oracle:thin:218.144.130.138:1522:xe"></property> -->
         <!-- Optional settings -->
         <property name="maximumPoolSize" value="10"></property>
         <property name="minimumIdle" value="5"></property>

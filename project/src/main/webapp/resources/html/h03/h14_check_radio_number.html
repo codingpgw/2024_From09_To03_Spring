@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>제목</title>
+  </head>
+  <body>
+  <h2>체크박스와 리디어</h2>
+  <hr/>
+  <form action="#" method="get">
+  <fieldset>
+    <legend>상품선택</legend>
+      <p><b>주문할 상품을 선택</b>하세요.</p>
+      <ul>
+        <li>
+          <input type="checkbox" name="product" value="s_2"><label>선물용 2kg</label>
+          <input type="number" min="0" max="5">개(최대 5개)
+        </li>
+
+        <li>
+          <input type="checkbox" name="product" value="s_3"><label>선물용 3kg</label>
+          <input type="number" min="0" max="5" value="0">개(최대 5개)
+        </li>
+        <li><input type="checkbox" name="product" value="s_5"><label>선물용 5kg</label></li>
+      </ul>
+      <p><b>포장 선택</b></p>
+      <ul>
+        <li>
+          <label><input type="radio" name="box" value="1">선물 포장</label>
+          <label><input type="radio" name="box" value="0">선물 포장 안함</label>
+          <label><input type="range" name="box" min="1" max="100" step="1" value="70"></label>
+        </li>
+        <li>
+          <label><input type="date" min="2024-12-01" max="2024-12-10"></label>
+        </li>
+      </ul>
+
+      <p><b>선택</b></p>
+      <ul>
+        <li>
+          <select name="productSel">
+            <option value="5">선물용 5kg</option>
+            <option value="10">선물용 10kg</option>
+            <option value="15">선물용 15kg</option>
+          </select>
+        </li>
+      </ul>
+
+      <p><b>메모</b></p>
+      <ul>
+        <li>
+          <textarea name="memo" cols="50" rows="5"></textarea>
+        </li>
+      </ul>
+      <input type="submit" value="전송">
+      <input type="reset" value="초기화">
+      <input type="image" src="/images/summer.png">
+  </fieldset>
+</form>
+    <div>생성일: 2024. 12. 11</div>
+  </body>
+</html>

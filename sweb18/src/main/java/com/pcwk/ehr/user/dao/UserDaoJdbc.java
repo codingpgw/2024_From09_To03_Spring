@@ -52,7 +52,7 @@ public class UserDaoJdbc implements UserDao {
 	public UserDaoJdbc() {
 		super();
 	}
-
+	
 	/**
 	 * 502건 데이터 입력, paging데이터 처리
 	 * 
@@ -87,7 +87,18 @@ public class UserDaoJdbc implements UserDao {
 		SearchVO inVO = (SearchVO) dto;
 
 		List<UserVO> userList = new ArrayList<UserVO>();
-
+		StringBuilder search = new StringBuilder(100);
+		
+		if( "10".equals( inVO.getSearchDiv() )){       //회원ID
+			search.append(" 							WHERE user_id LIKE ? ||'%'  \n");
+		}else if( "20".equals( inVO.getSearchDiv() )){ //이름
+			search.append(" 							WHERE name LIKE ? ||'%'     \n");
+		}else if( "30".equals( inVO.getSearchDiv() )){ //이메일
+			search.append(" 							WHERE email LIKE ? ||'%'    \n");
+		}
+		
+		log.debug("2.inVO: " + inVO);
+		  
 		StringBuilder sb = new StringBuilder(1000);
 		sb.append(" SELECT A.*, B.*                                                             \n");
 		sb.append("   FROM (                                                                    \n");
@@ -105,7 +116,10 @@ public class UserDaoJdbc implements UserDao {
 		sb.append(" 				  FROM (                                                    \n");
 		sb.append(" 							SELECT *                                        \n");
 		sb.append(" 							FROM member                                     \n");
-		sb.append(" 							--WHERE 조건                                                                     \n");
+		sb.append(" 							--WHERE 조건                                                                                  \n");
+		//-------------------------------------------------------------------------------------------
+		sb.append(search.toString());
+		//-------------------------------------------------------------------------------------------		
 		sb.append(" 							ORDER BY reg_dt DESC                            \n");
 		sb.append(" 				)t1                                                         \n");
 		sb.append(" 				WHERE ROWNUM <=( ? * (? - 1  )+? )                          \n");
@@ -113,14 +127,49 @@ public class UserDaoJdbc implements UserDao {
 		sb.append(" 		WHERE rnum >=( ? * (? - 1  )+1 )                                    \n");
 		sb.append("   ) A                                                                       \n");
 		sb.append("   CROSS JOIN (                                                              \n");
-		sb.append(" 		SELECT COUNT(*) totalCnt                                            \n");
+		sb.append(" 		SELECT COUNT(*) totalCnt                                            \n");  
 		sb.append(" 		FROM member                                                         \n");
 		sb.append(" 		--WHERE 조건                                                                                                          \n");
+		//-------------------------------------------------------------------------------------------
+		sb.append(search.toString());
+		//-------------------------------------------------------------------------------------------	
 		sb.append("   ) B                                                                       \n");
 
-		Object[] args = { inVO.getPageSize(), inVO.getPageNo(), inVO.getPageSize(), inVO.getPageSize(),
-				inVO.getPageNo() };
+		log.debug("3.sql: \n" + sb.toString());
+		
+//		Object[] args = { inVO.getPageSize(), inVO.getPageNo(), inVO.getPageSize(), inVO.getPageSize(),
+//				inVO.getPageNo() };
 
+		Object[] args = null ;
+		log.debug("3.inVO.getSearchDiv(): \n" + inVO.getSearchDiv());
+		log.debug("3.inVO.getSearchDiv().length(): \n" + inVO.getSearchDiv().length());
+		
+		if(!"".equals(inVO.getSearchDiv()) || inVO.getSearchDiv().length() > 0) {
+			
+			args = new Object[7];
+			args[0] = inVO.getSearchWord();
+			
+			args[1] = inVO.getPageSize();
+			args[2] = inVO.getPageNo();
+			args[3] = inVO.getPageSize();
+			args[4] = inVO.getPageSize();
+			args[5] = inVO.getPageNo();			
+			
+			args[6] = inVO.getSearchWord();
+		}else {
+			args = new Object[5];
+			args[0] = inVO.getPageSize();
+			args[1] = inVO.getPageNo();
+			args[2] = inVO.getPageSize();
+			args[3] = inVO.getPageSize();   
+			args[4] = inVO.getPageNo();
+		}
+		
+		
+		for(Object obj  :args) {
+			log.debug("4.obj: \n" + obj);	
+		}
+		
 		RowMapper<UserVO> users = new RowMapper<UserVO>() {
 
 			@Override

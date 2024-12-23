@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8"/>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing: border-box;
+    }
+    .container{
+      width: 1200px;
+      display: grid;
+      min-height: 100dvh;
+      gap:10px;
+      grid-template-columns: 300px 900px;
+      grid-template-rows: 120px 600px 100px;
+    }
+    .header{
+      border:1px solid purple;
+      grid-column: 1/4;
+      grid-row-start: 1;
+    }
+    .sidebar{
+      border: 1px solid green;
+      grid-column: 1/2;
+      grid-row:2/3;
+    }
+    .main{
+      border: 1px solid blue;
+      grid-column: 2/4;
+      grid-row: 2/3;
+    }
+    .footer{
+      border: 1px solid darkmagenta;
+      grid-column: 1/4;
+      grid-row: 3/4;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>제목</title>
+  </head>
+  <body>
+  <div class="container">
+    <header class="header">
+      <h2>header</h2>
+    </header>
+    <aside class="sidebar">
+      <h2>aside</h2>
+    </aside>
+    <main class="main">
+      <h2>main</h2>
+    </main>
+    <footer class="footer">
+      <h2>footer</h2>
+    </footer>
+  </div>
+    
+  </body>
+</html>

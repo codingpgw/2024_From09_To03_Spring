@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8"/>
+  <style>
+    .items{
+      border: 1px solid #222;
+      padding:10px;
+      font-size:20px;
+      text-align: center;
+    }
+
+    .items:nth-child(even){
+      background-color: burlywood;
+    }
+    .container{
+      width:800px;
+      border:1px solid #ccc;
+      display: grid;
+     
+    }
+
+    .container_auto_fit{
+      grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+    }
+    .container_auto_fill{
+      grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>그리드</title>
+  </head>
+  <body>
+    <h2>auto-fit</h2>
+    <div class="container container_auto_fit">
+      <div class="items">1</div>
+      <div class="items">2</div>
+      <div class="items">3</div>
+      <div class="items">4</div>
+      <div class="items">5</div>
+    </div>
+    
+    <h2>auto-fill</h2>
+    <div class="container container_auto_fill">
+      <div class="items">1</div>
+      <div class="items">2</div>
+      <div class="items">3</div>
+      <div class="items">4</div>
+      <div class="items">5</div>
+    </div>
+  </body>
+</html>

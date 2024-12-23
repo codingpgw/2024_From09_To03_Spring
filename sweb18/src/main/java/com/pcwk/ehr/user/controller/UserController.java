@@ -75,9 +75,9 @@ public class UserController {
 		log.debug("searchWord:{}",searchWord);
 		
 		search.setPageNo(pageNo);
-		search.setPageSize(pageSize);
+		search.setPageSize(pageSize); 
 		search.setSearchDiv(searchDiv);
-		search.setSearchWord(searchWord);
+		search.setSearchWord(searchWord);  
 		
 		log.debug("search:{}",search);
 		
@@ -89,24 +89,25 @@ public class UserController {
 		return viewName;
 	}
 
-	@RequestMapping(value = "/doSelectOne.do",
-					method = RequestMethod.GET)
-	public String doSelectOne(@RequestParam(name="userId",required = true, defaultValue="Unkwon Id")String inUserId,Model model) 
-			throws Exception{
+	@RequestMapping(value = "/doSelectOne.do", method = RequestMethod.GET)
+	public String doSelectOne(
+			@RequestParam(name = "userId", required = true, defaultValue = "Unknown Id") String inUserId, Model model)
+			throws Exception {
 		String viewName = "user/user_mng";
-		log.debug("┌───────────────────────────────────────┐");
-		log.debug("│ **doSelectOne()**                     │");
-		log.debug("└───────────────────────────────────────┘");
-		
+		log.debug("┌───────────────────────────────────────────────────────────┐");
+		log.debug("│ ***doSelectOne()***                                       │");
+		log.debug("└───────────────────────────────────────────────────────────┘");
+
 		UserVO inVO = new UserVO();
-		
-		log.debug("userId:{}",inUserId);
+
+		log.debug("userId: {}", inUserId);
+
 		inVO.setUserId(inUserId);
-		
+
 		UserVO outVO = userService.doSelectOne(inVO);
-		
-		model.addAttribute("vo",outVO);
-		
+
+		model.addAttribute("vo", outVO);
+
 		return viewName;
 	}
 
@@ -146,9 +147,10 @@ public class UserController {
 		log.debug("│ **doDelete()**                        │");
 		log.debug("└───────────────────────────────────────┘");
 		UserVO inVO = new UserVO();
-
-		String userId = inUserId;
-		log.debug("inUserId:{}", inUserId);
+		
+		String userId = req.getParameter("userId");
+		//String userId = inUserId;
+		//log.debug("inUserId:{}", inUserId);
 		inVO.setUserId(userId);
 		log.debug("inVO:{}", inVO);
 

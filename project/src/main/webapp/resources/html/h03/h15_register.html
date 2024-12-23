@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    label{
+      width: 120px; /* 라벨의 고정 너비 */
+      text-align: left; /* 텍스트 왼쪽 정렬 */
+      font-weight: bold;
+      margin-right: 10px; /* 입력 필드와 간격 */
+      color: #333;
+    }
+    .btn{
+      margin-top: 20px;
+      padding: 10px 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>회원 가입을 환영합니다</h1>
+  <form>
+    <fieldset>
+      <legend>사용자 정보</legend>
+      <div>
+        <label for="userId">아이디</label>
+        <input type="text" name="userId" id="userId">
+      </div>
+      <div>
+        <label for="email">이메일</label>
+        <input type="email" name="email" id="email">
+      </div>  
+      <div>
+        <label for="password">비밀번호</label>
+        <input type="password" name="password" id="password">
+      </div>
+      <div>
+        <label for="passcheck">비밀번호 확인</label>
+        <input type="password" name="passcheck" id="passcheck">
+      </div>
+      <div>
+        <label for="recommend">가입 경로</label>
+        <select name="recommend" id="recommend">
+          <option value="10">SNS</option>
+          <option value="20">인터넷</option>
+        </select>
+      </div>
+      <div>
+        <label for="memo">메모</labelㄹ>
+        <textarea name="memo" id="memo" cols="60" rows="5"></textarea>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>이벤트와 새로운 소식</legend>
+      <div>
+        <label><input type="radio" name="accept" value="1">메일 수신</label>
+        <label><input type="radio" name="accept" value="0">메일 수신 안 함</label>
+      </div>
+    </fieldset>
+    <input type="submit" value="가입하기" class="btn" style="margin-left: 25%;">
+    <input type="reset" value="취소하기" class="btn">
+  </form>
+</body>
+</html>
