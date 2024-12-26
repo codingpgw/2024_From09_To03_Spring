@@ -19,13 +19,13 @@ document.addEventListener('DOMContentLoaded',function(){
            let cells = row.getElementsByTagName("td");
            //userId 배열에서 추출
            const userId = cells[1].innerText;  
-           console.log(`userId:${userId}`);
+           console.log(`mem_id:${mem_id}`);
 
            if(confirm('회원 상세 조회 하시겠습니까?') === false) return;
                        
                        //UserController.java
                        // '/user/doSelectOne.do'를 get방식으로 userId를 전달!
-           window.location.href = "/ehr/user/doSelectOne.do?userId="+userId;
+           window.location.href = "/ehr/user/doSelectOne.do?mem_id="+mem_id;
 
        });
 

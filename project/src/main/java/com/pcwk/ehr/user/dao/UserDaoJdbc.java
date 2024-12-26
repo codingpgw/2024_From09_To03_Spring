@@ -38,7 +38,7 @@ public class UserDaoJdbc implements UserDao {
 			outVO.setMem_email(rs.getString("mem_email"));
 			outVO.setMem_phonenum(rs.getString("mem_phonenum"));
 			outVO.setMem_jumin(rs.getString("mem_jumin"));
-			outVO.setMem_div(rs.getInt("mem_div"));
+			outVO.setMem_div(rs.getString("mem_div"));
 			outVO.setMem_regdt(rs.getString("mem_reg_dt"));
 			//-----------------------------------------------------------------
 			
@@ -179,7 +179,7 @@ public class UserDaoJdbc implements UserDao {
 				outVO.setMem_email(rs.getString("mem_email"));
 				outVO.setMem_phonenum(rs.getString("mem_phonenum"));
 				outVO.setMem_jumin(rs.getString("mem_jumin"));
-				outVO.setMem_div(rs.getInt("mem_div"));
+				outVO.setMem_div(rs.getString("mem_div"));
 				outVO.setMem_regdt(rs.getString("mem_reg_dt"));
 				outVO.setTotalCnt(rs.getInt("totalCnt"));
 				log.debug("outVO:{}", outVO);
@@ -384,6 +384,47 @@ public class UserDaoJdbc implements UserDao {
 		log.debug("2.flag:{}", flag);
 		
 		return flag;
+	}
+	
+	@Override
+	public int idCheck(UserVO inVO) throws SQLException {
+		int count = 0;
+		StringBuilder sb = new StringBuilder(50);
+		
+		sb.append("SELECT COUNT(*) cnt \n");
+		sb.append("  FROM yamu.member  \n");
+		sb.append(" WHERE mem_id = ?  \n"); 
+		
+		log.debug("1. param:"+inVO);
+		log.debug("2. sql:\n" + sb.toString());
+		
+		Object[] args = {inVO.getMem_id()};
+		
+		count = jdbcTemplate.queryForObject(sb.toString(), Integer.class, args);
+		log.debug("3. count:{}", count);
+		
+		return count;
+	}
+
+	@Override
+	public int idPassCheck(UserVO inVO) throws SQLException {
+		int count = 0;
+		StringBuilder sb = new StringBuilder(50);
+		
+		sb.append("SELECT COUNT(*) cnt \n");
+		sb.append("  FROM yamu.member  \n");
+		sb.append(" WHERE mem_id = ?  \n");
+		sb.append(" AND mem_password = ?   \n");
+		
+		log.debug("1. param:"+inVO);
+		log.debug("2. sql:\n" + sb.toString());
+		
+		Object[] args = {inVO.getMem_id(), inVO.getMem_password()};
+		
+		count = jdbcTemplate.queryForObject(sb.toString(), Integer.class, args);
+		log.debug("3. count:{}", count);
+		
+		return count;
 	}
 	
 	

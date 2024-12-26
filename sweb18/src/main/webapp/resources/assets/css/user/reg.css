@@ -1,0 +1,60 @@
+@charset "UTF-8";
+/* 전체 폼 컨테이너 스타일 */
+form {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 레이블 스타일 */
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 입력 필드 스타일 */
+form input[type="text"],
+form input[type="password"],
+form input[type="number"],
+form input[type="email"],
+form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* 버튼 컨테이너 스타일 */
+form .btn-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* 버튼 스타일 */
+form input[type="button"] {
+  width: 48%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form input[type="button"]:hover {
+  background-color: #0056b3;
+}

@@ -7,6 +7,9 @@ import com.pcwk.ehr.cmn.DTO;
 import com.pcwk.ehr.user.domain.UserVO;
 
 public interface UserDao {
+	int idCheck(UserVO inVO) throws SQLException;
+	
+	int idPassCheck(UserVO inVO) throws SQLException;
 	
 	int doDelete(UserVO inVO) throws SQLException;
 	

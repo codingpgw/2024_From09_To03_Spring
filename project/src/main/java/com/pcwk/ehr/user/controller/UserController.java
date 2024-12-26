@@ -83,6 +83,16 @@ public class UserController {
 		
 		List<UserVO> list = userService.doRetrieve(search);
 		
+		int totalCnt = 0;
+		for(int i=0; i<list.size(); i++) {
+			if(i == 0) {
+				UserVO vo = list.get(0);
+				totalCnt = vo.getTotalCnt();
+				break;
+			}
+		}
+		
+		model.addAttribute("totalCnt", totalCnt);
 		model.addAttribute("list",list);
 		model.addAttribute("search", search);
 		

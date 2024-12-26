@@ -14,7 +14,7 @@ public interface UserService {
 	int MIN_LOGIN_COUNT_FOR_SILVER = 50;
 	//30(SILVER -> GOLD로 가기 위한 최소 추천 횟수
 	int MIN_RECOMMEND_COUNT_FOR_GOLD = 30;
-
+	
 	/**
 	 * 회원 삭제
 	 * @param inVO

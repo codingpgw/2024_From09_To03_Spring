@@ -21,7 +21,6 @@ import com.google.gson.Gson;
 import com.pcwk.ehr.cmn.MessageVO;
 import com.pcwk.ehr.cmn.SearchVO;
 import com.pcwk.ehr.cmn.StringUtil;
-import com.pcwk.ehr.user.domain.Level;
 import com.pcwk.ehr.user.domain.UserVO;
 import com.pcwk.ehr.user.service.UserService;
 
@@ -82,7 +81,17 @@ public class UserController {
 		log.debug("search:{}",search);
 		
 		List<UserVO> list = userService.doRetrieve(search);
+		//총 글수
+		int totalCnt = 0;
+		for(int i=0; i<list.size(); i++) {
+			if(i == 0) {
+				UserVO vo = list.get(0);
+				totalCnt = vo.getTotalCnt();
+				break;
+			}
+		}
 		
+		model.addAttribute("totalCnt", totalCnt);
 		model.addAttribute("list",list);
 		model.addAttribute("search", search);
 		

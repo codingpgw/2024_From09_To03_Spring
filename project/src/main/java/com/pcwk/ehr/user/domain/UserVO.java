@@ -11,7 +11,7 @@ public class UserVO extends DTO {
 	private String mem_email;
 	private String mem_phonenum;
 	private String mem_jumin;
-	private int mem_div;
+	private String mem_div;
 	private String mem_regdt;
 	
 	public UserVO() {
@@ -19,7 +19,7 @@ public class UserVO extends DTO {
 	}
 
 	public UserVO(String mem_id, String mem_password, String mem_name, String mem_email, String mem_phonenum,
-			String mem_jumin, int mem_div, String mem_regdt) {
+			String mem_jumin, String mem_div, String mem_regdt) {
 		super();
 		this.mem_id = mem_id;
 		this.mem_password = mem_password;
@@ -79,11 +79,11 @@ public class UserVO extends DTO {
 		this.mem_jumin = mem_jumin;
 	}
 
-	public int getMem_div() {
+	public String getMem_div() {
 		return mem_div;
 	}
 
-	public void setMem_div(int mem_div) {
+	public void setMem_div(String mem_div) {
 		this.mem_div = mem_div;
 	}
 

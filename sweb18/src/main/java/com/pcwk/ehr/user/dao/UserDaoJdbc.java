@@ -5,8 +5,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.sql.DataSource;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -396,6 +394,47 @@ public class UserDaoJdbc implements UserDao {
 		log.debug("2.flag:{}", flag);
 		
 		return flag;
+	}
+
+	@Override
+	public int idCheck(UserVO inVO) throws SQLException {
+		int count = 0;
+		StringBuilder sb = new StringBuilder(50);
+		
+		sb.append("SELECT COUNT(*) cnt \n");
+		sb.append("  FROM member       \n");
+		sb.append(" WHERE user_id = ?  \n"); 
+		
+		log.debug("1. param:"+inVO);
+		log.debug("2. sql:\n" + sb.toString());
+		
+		Object[] args = {inVO.getUserId()};
+		
+		count = jdbcTemplate.queryForObject(sb.toString(), Integer.class, args);
+		log.debug("3. count:{}", count);
+		
+		return count;
+	}
+
+	@Override
+	public int idPassCheck(UserVO inVO) throws SQLException {
+		int count = 0;
+		StringBuilder sb = new StringBuilder(50);
+		
+		sb.append("SELECT COUNT(*) cnt \n");
+		sb.append("  FROM member       \n");
+		sb.append(" WHERE user_id = ?  \n");
+		sb.append(" AND password = ?   \n");
+		
+		log.debug("1. param:"+inVO);
+		log.debug("2. sql:\n" + sb.toString());
+		
+		Object[] args = {inVO.getUserId(), inVO.getPassword()};
+		
+		count = jdbcTemplate.queryForObject(sb.toString(), Integer.class, args);
+		log.debug("3. count:{}", count);
+		
+		return count;
 	}
 	
 	

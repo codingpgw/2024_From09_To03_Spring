@@ -56,8 +56,24 @@ public class UserDaoJUnit {
 
 		search=new SearchVO();
 	}
-
-	//@Disabled
+	
+	@Test
+	public void login() throws SQLException {
+		dao.deleteAll();
+		assertEquals(0, dao.getCount());
+		
+		dao.doSave(userVO01);
+		assertEquals(1, dao.getCount());
+		
+		//userVO01.setUserId(userVO01.getUserId()+"_99");
+		assertEquals(1,dao.idCheck(userVO01));
+		
+		//userVO01.setPassword(userVO01.getPassword()+"_99");
+		assertEquals(1, dao.idPassCheck(userVO01));
+		
+	}
+	
+	@Disabled
 	@Test
 	public void beans() {
 		log.debug("context:"+context);
@@ -282,7 +298,7 @@ public class UserDaoJUnit {
 		assertEquals(3, count);
 	}
 
-	//@Disabled // 테스트 무시
+	@Disabled // 테스트 무시
 	@Timeout(value = 7000, unit = TimeUnit.MILLISECONDS)
 	@Test
 	public void addAndGet() throws SQLException {

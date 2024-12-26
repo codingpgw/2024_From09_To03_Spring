@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/ehr/resources/assets/css/user/list.css">
+<title>Insert title here</title>
+</head>
+<body>
+  <div class="containers">
+    <h2>회원목록</h2>
+    <hr class="title-underline">
+    <div>
+      
+    </div>  
+    <!-- 검색조건   이름  이메일-->  
+    <form action="#" class="search-form" name="userForm" id="userForm" method="post" enctype="application/x-www-form-urlencoded">
+      <input type="hidden" name="pageNo" id="pageNo" >
+        <div class="search-group">
+            <label for="searchDiv">구분</label>
+            <select name="searchDiv" id="searchDiv">
+                <option value="">전체</option>
+                <option value="10" >회원ID</option>
+                <option value="20"  >이름</option>  
+                <option value="30"  >이메일</option>
+            </select>
+            <input type="search" name="searchWord" id="searchWord" value="${search.searchWord}">
+            <select name="pageSize" id="pageSize">
+                <option value="10"  >10</option>
+                <option value="20"  >20</option>
+                <option value="30"  >30</option>
+                <option value="50"   >50</option>
+                <option value="100" >100</option>
+            </select> 
+            <input type="button" value="조회" id="doRetrieveBtn"> 
+            <input type="button" value="등록" id="moveToRegBtn">           
+        </div>        	  
+  </form>  
+
+    <table border="1"  id="listTable"  class="table">
+      <thead>
+        <th class="table-head">번호</th>
+        <th class="table-head">회원ID</th>
+        <th class="table-head">이름</th>
+        <th class="table-head">이메일</th>
+        <th class="table-head">등급</th>
+        <th class="table-head">로그인</th>  
+        <th class="table-head">추천</th>
+        <th class="table-head">등록일</th>
+      </thead>
+      <tbody>  
+        
+          <tr>
+            <td class="table-cell text-center">1</td>
+            <td class="table-cell text-left highlight">k8888</td>
+            <td class="table-cell text-center">99이상무</td>
+            <td class="table-cell text-left">jamesol9@paran9.com</td>
+            <td class="table-cell text-center">BASIC</td>
+            <td class="table-cell text-right">9</td>
+            <td class="table-cell text-right">9</td>
+            <td class="table-cell text-center ">2024/12/20</td>
+          </tr>
+        
+          <tr>
+            <td class="table-cell text-center">2</td>
+            <td class="table-cell text-left highlight">foo98</td>
+            <td class="table-cell text-center">이상무01</td>
+            <td class="table-cell text-left">jamesol@paran.com</td>
+            <td class="table-cell text-center">SILVER</td>
+            <td class="table-cell text-right">1</td>
+            <td class="table-cell text-right">0</td>
+            <td class="table-cell text-center ">2024/12/19</td>
+          </tr>
+        
+          <tr>
+            <td class="table-cell text-center">3</td>
+            <td class="table-cell text-left highlight">foo99</td>
+            <td class="table-cell text-center">이상무01</td>
+            <td class="table-cell text-left">jamesol@paran.com</td>
+            <td class="table-cell text-center">BASIC</td>
+            <td class="table-cell text-right">1</td>
+            <td class="table-cell text-right">0</td>
+            <td class="table-cell text-center ">2024/12/19</td>
+          </tr>
+        
+          <tr>
+            <td class="table-cell text-center">4</td>
+            <td class="table-cell text-left highlight">jamse1</td>
+            <td class="table-cell text-center">이상무1</td>
+            <td class="table-cell text-left">jamesol@paran.com</td>
+            <td class="table-cell text-center">BASIC</td>
+            <td class="table-cell text-right">1</td>
+            <td class="table-cell text-right">1</td>
+            <td class="table-cell text-center ">2024/12/08</td>
+          </tr>
+        
+          <tr>
+            <td class="table-cell text-center">5</td>
+            <td class="table-cell text-left highlight">jamse2</td>
+            <td class="table-cell text-center">이상무2</td>
+            <td class="table-cell text-left">jamesol@paran.com</td>
+            <td class="table-cell text-center">SILVER</td>
+            <td class="table-cell text-right">2</td>
+            <td class="table-cell text-right">0</td>
+            <td class="table-cell text-center ">2024/12/07</td>
+          </tr>
+        
+          <tr>
+            <td class="table-cell text-center">6</td>
+            <td class="table-cell text-left highlight">jamse3</td>
+            <td class="table-cell text-center">이상무3</td>
+            <td class="table-cell text-left">jamesol@paran.com</td>
+            <td class="table-cell text-center">GOLD</td>
+            <td class="table-cell text-right">3</td>
+            <td class="table-cell text-right">1</td>
+            <td class="table-cell text-center ">2024/12/06</td>
+          </tr>
+        
+          <tr>
+            <td class="table-cell text-center">7</td>
+            <td class="table-cell text-left highlight">jamse4</td>
+            <td class="table-cell text-center">이상무4</td>
+            <td class="table-cell text-left">jamesol@paran.com</td>
+            <td class="table-cell text-center">BASIC</td>
+            <td class="table-cell text-right">4</td>
+            <td class="table-cell text-right">0</td>
+            <td class="table-cell text-center ">2024/12/05</td>
+          </tr>
+        
+          <tr>
+            <td class="table-cell text-center">8</td>
+            <td class="table-cell text-left highlight">jamse5</td>
+            <td class="table-cell text-center">이상무5</td>
+            <td class="table-cell text-left">jamesol@paran.com</td>
+            <td class="table-cell text-center">SILVER</td>
+            <td class="table-cell text-right">5</td>
+            <td class="table-cell text-right">1</td>
+            <td class="table-cell text-center ">2024/12/04</td>
+          </tr>
+        
+          <tr>
+            <td class="table-cell text-center">9</td>
+            <td class="table-cell text-left highlight">jamse6</td>
+            <td class="table-cell text-center">이상무6</td>
+            <td class="table-cell text-left">jamesol@paran.com</td>
+            <td class="table-cell text-center">GOLD</td>
+            <td class="table-cell text-right">6</td>
+            <td class="table-cell text-right">0</td>
+            <td class="table-cell text-center ">2024/12/03</td>
+          </tr>
+        
+          <tr>
+            <td class="table-cell text-center">10</td>
+            <td class="table-cell text-left highlight">jamse7</td>
+            <td class="table-cell text-center">이상무7</td>
+            <td class="table-cell text-left">jamesol@paran.com</td>
+            <td class="table-cell text-center">BASIC</td>
+            <td class="table-cell text-right">7</td>
+            <td class="table-cell text-right">1</td>
+            <td class="table-cell text-center ">2024/12/02</td>
+          </tr>
+        
+      </tbody>
+
+    </table>
+    <div class="pagination">
+      <a href="#" class="prev disabled">«</a>
+      <a href="#" class="page active">1</a>
+      <a href="#" class="page">2</a>
+      <a href="#" class="page">3</a>
+      <a href="#" class="page">4</a>
+      <a href="#" class="page">5</a>
+      <a href="#" class="next">»</a>
+  </div>
+
+</div>
+</body>
+</html>
