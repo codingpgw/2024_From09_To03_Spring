@@ -1,0 +1,134 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap');
+
+* {
+  user-select: none;
+}
+
+body {
+  font-family: "Nanum Gothic", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vh;
+  min-height: 100vh;
+  background-color: #f4f4f9;
+}
+
+.form-container {
+  background: #ffffff;
+  padding: 20px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  min-height: 650px;
+}
+
+h2 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.title-underline {
+  border: none;
+  border-bottom: 2px solid #007bff;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.button-area {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 30px;
+}
+
+.button-area input[type="button"] {
+  width: 30%;
+  height: 40px;
+  font-size: 14px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-area input[type="button"]:hover {
+  background-color: #0056b3;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.form-group label {
+  width: 130px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.form-group input,
+.form-group select {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+#checkId {
+  position: relative;
+}
+
+#checkId button {
+  position: absolute;
+  width: 80px;
+  height: auto;
+  top: 0;
+  bottom: 0;
+  right: 4px;
+  margin: 3px 0;
+  border-radius: 3px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+span#idCheckMessage,
+span#pwCheckMessage {
+  position: absolute;
+  top: 100%;
+  left: 8em;
+  margin-top: 3px;
+}
+
+#idCheckMessage,
+#pwCheckMessage {
+  margin-top: 5px;
+  font-size: 0.9em;
+  color: red;
+  position: absolute; 
+  top: 100%; 
+  left: 90px;
+}

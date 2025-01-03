@@ -1,0 +1,268 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html, body {
+  /* overflow: hidden; 스크롤 방지 */
+  width: 100%;
+}
+
+body {
+  display: flex;
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+.main-container {
+  display: block;
+  width: 100%;
+}
+
+.top-nav-container {
+  background-color: white;
+  width: calc(100% - 15em);
+  height: 60px;
+  box-shadow: 0px 2px 2px 2px #eee;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 15em;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.admin-name {
+  display: flex;
+  margin-right: 20px;
+  align-items: center;
+}
+
+#admin-name {
+  margin-left: 40px;
+  color: grey;
+}
+
+.left-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #495057;
+  color: white;
+  width: 15em;
+  height: 100vh;
+  padding: 2px;
+  position: fixed;
+  z-index: 2;
+  text-align: center;
+}
+
+.admin-page {
+  align-items: center;
+  margin-top: 0.7em;
+  margin-bottom: 1.5em;
+  padding-bottom: 0.9em;
+  border-bottom: 1px solid rgb(133, 133, 133);
+  text-align: center;
+}
+
+.left-nav-menu {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.left-nav-menu:hover {
+  background-color: #868e96;
+}
+
+.left-nav-menu.active {
+  background-color: #868e96;
+  font-weight: bold;
+}
+
+.left-nav-menu p,
+.left-nav-menu a {
+  text-align: right;
+  margin-left: 1em;
+}
+
+.left-nav-menu i {
+  margin-right: 10px;
+  width: 20px;
+}
+
+.left-nav-menu a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+
+.main-content-container {
+  width: calc(100% - 15em);
+  margin-top: 60px;
+  margin-left: 15em;
+  padding: 20px;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.content-title h2 {
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 1.5em;
+}
+
+table.data-table {
+  width: 100%;
+  font-size: .9em;
+  box-shadow: 0 2px 5px rgba(0,0,0,.25);
+  border-collapse: collapse;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+table.data-table thead th {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+thead {
+  font-weight: bold;
+  color: #fff;
+  background: #4A628A;
+}
+  
+.data-table td, .data-table th {
+  padding: 1em 1.5em;
+  vertical-align: middle;
+}
+
+th {
+  text-align: center;
+  
+}
+  
+td, tbody th {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  background: #fff;
+  text-align: center;
+}
+
+.table-cell {
+  white-space: nowrap;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #4A628A;
+}
+
+.search-form {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.search-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.search-group select:focus {
+  border: 1px solid ;
+}
+
+.search-group select,
+.search-group input,
+.search-group input[type="button"] {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.search-group input[type="button"] {
+  background-color: #4A628A;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-group input[type="button"]:hover {
+  background-color: #32415c;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  font-size: 16px;
+  gap: 5px;
+}
+
+.pagination a {
+  display: inline-block;
+  width: 50px;
+  text-align: center;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #4A628A;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.pagination a:hover {
+  background-color: #4A628A;
+  color: #ffffff;
+  border-color: #4A628A;
+}
+
+/* .pagination a.active{ 
+  background-color: #007bff;
+  color: #ffffff;
+  border-color: #007bff;
+}  */
+
+.pagination a.disabled {
+  background-color: #f8f9fa;
+  color: #000;
+  pointer-events: none;
+  border-color: #dddddd;
+  cursor: not-allowed;
+}

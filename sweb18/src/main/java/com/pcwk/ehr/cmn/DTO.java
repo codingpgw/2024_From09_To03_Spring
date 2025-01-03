@@ -12,10 +12,22 @@ public class DTO {
 	
 	private Map<String, String> optionSearch = new HashMap<String, String>(); 
 	
+	private String returnUrl; //return URL
+	
+	
 	public DTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public String getReturnUrl() {
+		return returnUrl;
+	}
+
+	public void setReturnUrl(String returnUrl) {
+		this.returnUrl = returnUrl;
+	}
+	
 	public int getNo() {
 		return no;
 	}
@@ -50,11 +62,12 @@ public class DTO {
 	public void setOptionSearch(Map<String, String> optionSearch) {
 		this.optionSearch = optionSearch;
 	}
+
 	@Override
 	public String toString() {
-		return "DTO [no=" + no + ", totalCnt=" + totalCnt + "]";
+		return "DTO [no=" + no + ", totalCnt=" + totalCnt + ", pageSize=" + pageSize + ", pageNo=" + pageNo
+				+ ", optionSearch=" + optionSearch + ", returnUrl=" + returnUrl + ", toString()=" + super.toString()
+				+ "]";
 	}
-	
-	
 	
 }

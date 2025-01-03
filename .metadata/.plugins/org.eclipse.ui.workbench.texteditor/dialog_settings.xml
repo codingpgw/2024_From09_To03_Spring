@@ -6,8 +6,15 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="hospital"/>
+		<item key="selection" value="mybatis"/>
 		<list key="findhistory">
+			<item value="mybatis"/>
+			<item value="mybas"/>
+			<item value="quartz-jobs"/>
+			<item value="spring-context-support"/>
+			<item value="javax"/>
+			<item value="cmnDiv"/>
+			<item value="UserVO"/>
 			<item value="duty"/>
 			<item value="search"/>
 			<item value="search:{}"/>
@@ -16,15 +23,10 @@
 			<item value="searchDiv"/>
 			<item value="/user"/>
 			<item value="/use"/>
-			<item value="servlet"/>
-			<item value="mockito-all-version"/>
-			<item value="Exception"/>
-			<item value="context:"/>
-			<item value="context :"/>
-			<item value="context"/>
-			<item value="System.out.println"/>
 		</list>
 		<list key="replacehistory">
+			<item value="cmn_div"/>
+			<item value="BoardVO"/>
 			<item value="hospital"/>
 			<item value="${CP}"/>
 			<item value="log.debug"/>

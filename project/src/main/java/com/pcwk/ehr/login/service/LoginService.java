@@ -2,25 +2,22 @@ package com.pcwk.ehr.login.service;
 
 import java.sql.SQLException;
 
-import org.springframework.dao.EmptyResultDataAccessException;
-
-import com.pcwk.ehr.user.domain.UserVO;
+import com.pcwk.ehr.member.domain.MemberVO;
 
 public interface LoginService {
-	
 	/**
 	 * 단건 조회
 	 * @param inVO
-	 * @return
+	 * @return MemberVO
 	 * @throws Exception
 	 */
-	UserVO doSelectOne(UserVO inVO) throws Exception;
+	MemberVO doSelectOne(MemberVO inVO) throws Exception;
 	
 	/**
 	 * 
 	 * @param inVO
-	 * @return
+	 * @return int
 	 * @throws SQLException
 	 */
-	int idPassCheck(UserVO inVO) throws SQLException;
+	int idPassCheck(MemberVO inVO) throws SQLException;
 }

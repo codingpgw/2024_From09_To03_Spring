@@ -40,6 +40,11 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public int doSave(BoardVO inVO) throws SQLException {
+		if(inVO.getSeq() == 0) {
+			inVO.setSeq(boardDao.getBoardSequence());
+			log.debug(inVO);
+		}
+		
 		return boardDao.doSave(inVO);
 	}
 

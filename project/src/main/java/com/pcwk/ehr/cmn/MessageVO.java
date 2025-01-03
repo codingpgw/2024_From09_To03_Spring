@@ -1,13 +1,13 @@
 package com.pcwk.ehr.cmn;
 
 /**
- * DML의 처리 상태와 메시지
- * @author gy
+ * DML의 처리 상태와, 메시지
+ * @author acorn
  *
  */
 public class MessageVO extends DTO {
-	
-	private int messageId;//상태 : 1(성공)/1이외 실패
+
+	private int messageId;//상태: 1이면 성공 / 1 이외는 다 실패
 	private String message;//메시지
 	
 	public MessageVO() {
@@ -15,7 +15,6 @@ public class MessageVO extends DTO {
 	}
 
 	public MessageVO(int messageId, String message) {
-		super();
 		this.messageId = messageId;
 		this.message = message;
 	}

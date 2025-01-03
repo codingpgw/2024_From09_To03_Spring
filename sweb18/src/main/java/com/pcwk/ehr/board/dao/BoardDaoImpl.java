@@ -130,7 +130,8 @@ public class BoardDaoImpl implements BoardDao {
 		sb.append("       tt1.title,                                                               \n");
 		sb.append("       tt1.mod_id,                                                              \n");
 		sb.append("       TO_CHAR(tt1.mod_dt,'YYYY/MM/DD') mod_dt,                                 \n");
-		sb.append("       tt1.read_cnt                                                             \n");
+		sb.append("       tt1.read_cnt,                                                            \n");
+		sb.append("       tt1.div                                                             	   \n");
 		sb.append("	FROM(                                                                          \n");
 		sb.append("		SELECT ROWNUM rnum, t1.*                                                   \n");
 		sb.append("		FROM(                                                                      \n");
@@ -170,6 +171,7 @@ public class BoardDaoImpl implements BoardDao {
 				outVO.setModId(rs.getString("mod_id"));
 				outVO.setModDt(rs.getString("mod_dt"));
 				outVO.setReadCnt(rs.getInt("read_cnt"));			
+				outVO.setDiv(rs.getString("div"));
 				
 				outVO.setTotalCnt(rs.getInt("totalCnt"));
 				
@@ -232,7 +234,7 @@ public class BoardDaoImpl implements BoardDao {
 			args[6] = searchOptionMap.get("div");
 		}
 		
-		
+		log.debug("2.sql:\n"+sb.toString());
 		boardList = jdbcTemplate.query(sb.toString(), boards, args);
 		
 		for(BoardVO vo : boardList) {
@@ -368,7 +370,8 @@ public class BoardDaoImpl implements BoardDao {
 		
 		return seq;
 	}
-
+	
+	//자신이 등록한 글은 조회 count 증가 안됨
 	@Override
 	public int doReadCntUpdate(BoardVO inVO) throws SQLException {
 		int flag = 0;
@@ -377,10 +380,12 @@ public class BoardDaoImpl implements BoardDao {
 		sb.append("SET                              \n");
 		sb.append("    read_cnt = NVL(read_cnt,0)+1 \n");
 		sb.append("WHERE                            \n");
-		sb.append("        seq = ?                  \n");
+		sb.append("        seq     = ?              \n");
+		sb.append("  AND   reg_id !=?               \n");	
 		
 		Object[] args = {
-				inVO.getSeq()
+				inVO.getSeq(),
+				inVO.getRegId()
 		};
 		
 		log.debug("1.param:{}",Arrays.toString(args));

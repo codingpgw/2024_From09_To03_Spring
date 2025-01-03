@@ -1,8 +1,12 @@
-<%@page import="com.pcwk.ehr.cmn.SearchVO"%>
 <%@page import="com.pcwk.ehr.cmn.StringUtil"%>
+<%@page import="com.pcwk.ehr.cmn.SearchVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="CP" value="${pageContext.request.contextPath }" />
+<c:set var="now" value="<%=new java.util.Date()%>" />
+<c:set var="sysDate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd_HH:mm:ss" /></c:set> 
 <%
 /**
  * 
@@ -31,7 +35,7 @@
     //out.print("pageNo****:"+pageNo);
     
     String cp = request.getContextPath();
-    String pageHtml = StringUtil.renderingPager(maxNum, pageNo, pageSize, bottomCount, cp+"/user/doRetrieve.do", "pageDoRetrieve");
+    String pageHtml = StringUtil.renderingPager(maxNum, pageNo, pageSize, bottomCount, cp+"/hospital/doRetrieve.do", "pageDoRetrieve");
     //out.print("pageHtml:<br>"+pageHtml);
 %>
 <!DOCTYPE html>
@@ -41,75 +45,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>hospital_list</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="/ehr/resources/assets/css/hospital/holist_style_copy.css">
-  <link rel="stylesheet" href="/ehr/resources/assets/css/hospital/nav.css">
+  <link rel="stylesheet" href="/ehr/resources/assets/css/hospital/holist_list.css?date=${sysDate}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <script src="/ehr/resources/assets/js/hospital/hospital_list.js?date=${sysDate}"></script>
 </head>
 <body>
- <nav id="test"></nav>
-
- <div class="container_list">
-  <div class="search-menu">
-    <select class="local-select" aria-label="Default select example">
-      <option selected>--지역 선택을 골라주세요.--</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
-    <form action="" method="get">
-      <input type="text" name="search-value" placeholder="병원 이름을 입력해주세요." class="csearch-value">
-
-      <button class="detail-search" type="submit">
-        <i class="fa-solid fa-magnifying-glass"></i>검색
-      </button>
-    </form>
-     
-  </div>
-  <div class="department-list">
-    <ul class="detail-list">
-      <a href="#"><li>안과</li></a>
-      <a href="#"><li>내과</li></a>
-      <a href="#"><li>안과</li></a>
-      <a href="#"><li>안과</li></a>
-      <a href="#"><li>안과</li></a>
-      <a href="#"><li>안과</li></a>
-    </ul>
-  </div>
-
-  <div class="search-result">
-  <c:forEach var="vo" items="${list }">
-    <a href="#">
-      <div class="detail-box">
-        <h4>병원 이름</h4>
-        <p>진료시간</p>
-        <p>주소</p>
-        <p>진료과목</p>
-      </div>
-    </a>
-   </c:forEach>
-   </div>
-  </div>
-
-  <%
-    out.print(pageHtml);
-    %>
-
- <script>
-  fetch('nav.jsp')
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById('test').innerHTML = data;
-
-    // 이벤트 리스너 추가
-    const toggler = document.getElementsByClassName('navbar-toggler')[0];
-    const userMenu = document.getElementsByClassName('user-menu')[0];
-
-    if (toggler && userMenu) {
-      toggler.addEventListener('click', function () {
-        userMenu.classList.toggle('show');
-      });
-    }
-  });
- </script>
+ 
 </body>
 </html>

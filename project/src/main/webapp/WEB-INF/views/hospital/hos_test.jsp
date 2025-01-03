@@ -6,17 +6,6 @@
 <c:set var="CP" value="${pageContext.request.contextPath}"/>
 
 <%
-/**
- * 
- * @param maxNum : 총 글수
- * @param currentPageNo : 현재 페이지 번호
- * @param rowPerpage : 페이지 사이즈(10,20,...100)
- * @param bottomCount : 10/5
- * @param url : 서버 호출 URL
- * @param scriptName : 자바스크립트 함수명
- * @return "html 텍스트"
- */
-//public static String renderingPager(int maxNum, int currentPageNo, int rowPerpage, int bottomCount, String url, String scriptName) {
     
     int bottomCount = 10;
     int pageSize    = 10;
@@ -44,7 +33,7 @@
 <link rel="stylesheet" href="/ehr/resources/assets/css/user/list.css">
 <script src="/ehr/resources/assets/js/jquery_3_7_1.js"></script>
 <script src="/ehr/resources/assets/js/cmn/common.js"></script>
-<script src="/ehr/resources/assets/js/user/user_list.js"></script>
+<script src="/ehr/resources/assets/js/hospital/hospital_list.js?date=${sysDate}"></script>
 <title>회원목록</title>
 </head>
 <body>
@@ -54,7 +43,17 @@
     <!--// header-------------------------------------------------->
 
     <!-- aside-->
-    <jsp:include page="/WEB-INF/views/include/aside.jsp"></jsp:include>
+    <aside id="sidebar">
+	  <h2>aside</h2>
+	  <ul>
+	      <li><a href="/ehr/hospital/doRetrieve.do?pageNo=1&searchDiv=20&searchWord=한의원&pageSize=10">한의원</a></li>
+		  <li><a href="/ehr/hospital/doRetrieve.do?pageNo=1&searchDiv=20&searchWord=의원&pageSize=10">의원</a></li>
+		  <li><a href="/ehr/hospital/doRetrieve.do?pageNo=1&searchDiv=20&searchWord=치과병원&pageSize=10">치과병원</a></li>
+		  <li><a href="/ehr/hospital/doRetrieve.do?pageNo=1&searchDiv=20&searchWord=치과의원&pageSize=10">치과의원</a></li>
+		  <li><a href="/ehr/hospital/doRetrieve.do?pageNo=1&searchDiv=20&searchWord=한방병원&pageSize=10">한방병원</a></li>
+		  <li><a href="/ehr/hospital/doRetrieve.do?pageNo=1&searchDiv=20&searchWord=종합병원&pageSize=10">종합병원</a></li>
+	  </ul>
+	</aside>
     <!--// aside--------------------------------------------------->
     
     <main  id="contents">
@@ -69,9 +68,9 @@
                 <label for="searchDiv">구분</label>
                 <select name="searchDiv" id="searchDiv">  
                     <option value="">전체</option>
-                    <option value="10" <c:if test="${ 10 ==search.searchDiv}">selected</c:if> >회원ID</option>
-                    <option value="20" <c:if test="${ 20 ==search.searchDiv}">selected</c:if> >이름</option>  
-                    <option value="30" <c:if test="${ 30 ==search.searchDiv}">selected</c:if> >이메일</option>
+                    <option value="10" <c:if test="${ 10 ==search.searchDiv}">selected</c:if> >병원 이름</option>
+                    <option value="20" <c:if test="${ 20 ==search.searchDiv}">selected</c:if> >진료과목</option>  
+                    <option value="30" <c:if test="${ 30 ==search.searchDiv}">selected</c:if> >지역</option>
                 </select>
                 <input type="search" name="searchWord" id="searchWord" value="${search.searchWord}">
                 <select name="pageSize" id="pageSize">
@@ -88,27 +87,29 @@
         <table border="1" id="listTable" class="table">
             <thead>
                 <th class="table-head">번호</th>
-                <th class="table-head">회원ID</th>
-                <th class="table-head">비밀번호</th>
-                <th class="table-head">이름</th>
-                <th class="table-head">이메일</th>
-                <th class="table-head">전화번호</th>  
-                <th class="table-head">구분</th>
-                <th class="table-head">등록일</th>
+                <th class="table-head">병원 이름</th>
+                <th class="table-head">병원 주소</th>
+                <th class="table-head">전화번호</th>
+                <th class="table-head">경도</th>
+                <th class="table-head">위도</th>  
+                <th class="table-head">진료과</th>
+                <th class="table-head">설명</th>
+                <th style="display:none;">병원번호</th>
             </thead>
             <tbody>
                 <c:choose>
-                   <c:when test="${not empty list}"> 
+                   <c:when test="${list.size()>0}"> 
                    <c:forEach var="vo" items="${list}">
                      <tr title="더블클릭하면 상세 정보를 볼 수 있습니다.">
-                        <td class="table-cell text-center">${vo.getNo() }</td>
-                        <td class="table-cell text-left highlight">${vo.hospital_name }</td>
-                        <td class="table-cell text-center">${vo.hospital_addr}</td>
-                        <td class="table-cell text-left">${vo.hospital_tel }</td>
-                        <td class="table-cell text-center">${vo.hospital_lon}</td>
-                        <td class="table-cell text-right">${vo.hospital_lat}</td>
-                        <td class="table-cell text-center ">${vo.hospital_div }</td>
-                        <td class="table-cell text-center ">${vo.hospital_etc }</td>
+                        <td class="table-cell text-center"><c:out value="${vo.no}" escapeXml="true"/></td>
+                        <td class="table-cell text-left highlight"><c:out value="${vo.hospital_name}" escapeXml="true"/></td>
+                        <td class="table-cell text-center"><c:out value="${vo.hospital_addr}" escapeXml="true"/></td>
+                        <td class="table-cell text-left"><c:out value="${vo.hospital_tel}" escapeXml="true"/></td>
+                        <td class="table-cell text-center"><c:out value="${vo.hospital_lon}" escapeXml="true"/></td>
+                        <td class="table-cell text-right"><c:out value="${vo.hospital_lat}" escapeXml="true"/></td>
+                        <td class="table-cell text-center "><c:out value="${vo.hospital_div}" escapeXml="true"/></td>
+                        <td class="table-cell text-center "><c:out value="${vo.hospital_etc}" escapeXml="true"/></td>
+                        <td class="table-cell text-center" style="display:none;"><c:out value="${vo.hospital_id}" escapeXml="true"/></td>
                     </tr>
                    </c:forEach>
                    </c:when>

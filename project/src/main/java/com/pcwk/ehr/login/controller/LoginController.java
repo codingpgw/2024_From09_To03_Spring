@@ -2,6 +2,7 @@ package com.pcwk.ehr.login.controller;
 
 import java.sql.SQLException;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.LogManager;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 import com.pcwk.ehr.cmn.MessageVO;
 import com.pcwk.ehr.login.service.LoginService;
-import com.pcwk.ehr.user.domain.UserVO;
+import com.pcwk.ehr.member.domain.MemberVO;
 
 @Controller
 @RequestMapping("login")
@@ -25,11 +26,11 @@ public class LoginController {
 	
 	@Autowired
 	private LoginService loginService;
-
+	
 	public LoginController() {
-		log.debug("┌───────────────────────────────────┐");
-		log.debug("│ **LoginController**               │");
-		log.debug("└───────────────────────────────────┘");
+		log.debug("┌───────────────────────────────────────┐");
+		log.debug("│ LoginController()                     │");
+		log.debug("└───────────────────────────────────────┘");
 	}
 	
 	@GetMapping("/login_index.do")
@@ -43,55 +44,60 @@ public class LoginController {
 	}
 	
 	@GetMapping("/logout.do")
-	public String logout(HttpSession httpSession) {
-		String viewName = "main/main";
+	public String logout(HttpSession httpSession, HttpServletResponse response) {
+		String viewName = "login/login";
 		log.debug("┌───────────────────────────────────────┐");
 		log.debug("│ **logout()**                          │");
 		log.debug("└───────────────────────────────────────┘");
 		
-		if(null != httpSession.getAttribute("user")) {
+		if (httpSession.getAttribute("member") != null) {
+			// session 삭제
 			httpSession.invalidate();
 		}
+		
+		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+	    response.setHeader("Pragma", "no-cache");
+	    response.setDateHeader("Expires", 0);
 		
 		return viewName;
 	}
 	
-	@RequestMapping(value="login.do",method = RequestMethod.POST,
-			produces = "text/plain;charset=UTF-8")
+	@RequestMapping(value = "/login.do", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
 	@ResponseBody
-	public String login(UserVO user, HttpSession httpSession) throws Exception {
+	public String login(MemberVO member, HttpSession httpSession) throws Exception {
 		String jsonString = "";
 		log.debug("┌───────────────────────────────────────┐");
 		log.debug("│ **login()**                           │");
 		log.debug("└───────────────────────────────────────┘");
 		
-		log.debug("user:{}", user);
+		log.debug(" │ param                       │" + member);
 		
-		int flag = loginService.idPassCheck(user);
+		int flag = loginService.idPassCheck(member);
 		
 		String message = "";
 		
-		//아이디를 확인하세요.
-		if(10 == flag) {
+		// 아이디를 확인하세요.
+		if (flag == 10) {
 			message = "아이디를 확인하세요.";
-		//비번을 확인하세요.
-		}else if(20 == flag) {
+		// 비밀번호를 확인하세요.
+		} else if (flag == 20) {
 			message = "비밀번호를 확인하세요.";
-		//아이디 비번 일치
-		}else if(30 == flag) {
-			UserVO outVO = loginService.doSelectOne(user);
-			message = user.getMem_id()+"님 환영합니다.";
+		// 아이디 비밀번호 일치
+		} else if (flag == 30) {
+			MemberVO outVO = loginService.doSelectOne(member);
+			message = member.getMemId() + "님 환영합니다.";
 			
-			//session 생성
-			httpSession.setAttribute("user", outVO);
-		}else {
+			// session 생성
+			httpSession.setAttribute("member", outVO);
+		} else {
 			flag = 99;
-			message = "오류가 발생했습니다. 다시 시도해주세요.";
+			message = "오류가 발생했습니다.";
 		}
+		
+		
 		jsonString = new Gson().toJson(new MessageVO(flag, message));
-		log.debug("jsonString:{}", jsonString);
+		log.debug("jsonString:\n{}", jsonString);
 		
 		return jsonString;
 	}
-	
 }

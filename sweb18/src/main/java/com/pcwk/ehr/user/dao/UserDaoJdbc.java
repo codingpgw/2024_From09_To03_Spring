@@ -278,7 +278,7 @@ public class UserDaoJdbc implements UserDao {
 		Object[] args = { inVO.getUserId(), inVO.getName(), inVO.getPassword() 
 				         ,inVO.getLogin(),inVO.getRecommend(),inVO.getGrade().intValue()
 				         ,inVO.getEmail()
-		};
+		}; //intValue()가 들어가지 않음 추후 확인 요망
 
 		log.debug("1.param:");
 		for (Object obj : args) {

@@ -93,6 +93,7 @@ body{
     <div class="login-container">
         <h2>로그인</h2>
         <form action="${CP}/login/login.do" method="post">
+            <input type="hidden" name="returnUrl" id="returnUrl" value="${returnUrl}">
             <div class="form-group">
                 <label for="userId">아이디:</label>
                 <input type="text" name="userId" id="userId" placeholder="아이디를 입력하세요." maxlength="30">

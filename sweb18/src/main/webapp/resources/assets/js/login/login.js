@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const loginBtn = document.querySelector('#loginBtn');
   const userIdInput = document.querySelector('#userId');
   const passwordInput = document.querySelector('#password');
+  const returnUrlInput = document.querySelector('#returnUrl');
 
   loginBtn.addEventListener('click',function(e){
     console.log('loginBtn');
@@ -31,7 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
       dataType: "html",
       data: {
           "userId" : userIdInput.value,
-          "password" : passwordInput.value
+          "password" : passwordInput.value,
+          "returnUrl" : returnUrlInput.value
       },
       success: function(response) {
           console.log("success response:" + response);
@@ -46,7 +48,13 @@ document.addEventListener('DOMContentLoaded', function() {
           }else if(30 == message.messageId){
             alert(message.message);
             
-            window.location.href = '/ehr/main/main.do';
+            //returnUrl이 있으면
+            if(message.returnUrl != ""){
+              window.location.href = message.returnUrl;
+            }else{
+              window.location.href = '/ehr/main/main.do';
+            }
+           
           }else{
             alert(message.message);
           }

@@ -15,6 +15,7 @@ public class UserVO extends DTO {
 	private Level grade  ;  //등급 (BASIC, SILVER, GOLD)
 	private String email    ;  //이메일
 	
+	
 	public UserVO() {
 
 	}
@@ -41,7 +42,7 @@ public class UserVO extends DTO {
 			this.grade = nextLevel;
 		}
 	}
-	
+
 	public String getUserId() {
 		return userId;
 	}
@@ -110,8 +111,9 @@ public class UserVO extends DTO {
 	public String toString() {
 		return "UserVO [userId=" + userId + ", name=" + name + ", password=" + password + ", regDt=" + regDt
 				+ ", login=" + login + ", recommend=" + recommend + ", grade=" + grade + ", email=" + email
-				+ ", getNo()=" + getNo() + ", getTotalCnt()=" + getTotalCnt() + "]";
+				+ ", toString()=" + super.toString() + "]";
 	}
 
+	
 	
 }

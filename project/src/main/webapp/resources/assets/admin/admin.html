@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>admin</title>
+</head>
+<body>
+  <form action="/ehr/admin/adminRetrieve.do" name="memberForm" id="memberForm" method="get" enctype="application/x-www-form-urlencoded">
+    <input type="hidden" name="pageNo" id="pageNo" value="1">
+    <input type="hidden" name="pageSize" id="pageSize" value="10">
+  </form>
+</body>
+<script>
+  document.getElementById("memberForm").submit();
+</script>
+</html>

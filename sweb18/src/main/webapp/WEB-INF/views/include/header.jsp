@@ -8,7 +8,8 @@
        <nav>
         <ul>
           <li><a href="${CP}/user/doRetrieve.do">회원관리</a></li>
-          <li><a href="#">게시판</a></li>
+          <li><a href="${CP}/board/doRetrieve.do?div=10">공지사항</a></li>
+          <li><a href="${CP}/board/doRetrieve.do?div=20">게시판</a></li>
           <li><a href="/ehr/resources/assets/user/reg_template.html">등록-템플릿</a></li>
           <li><a href="${CP}/resources/assets/user/list_template.html">리스트-템플릿</a></li>
           <c:choose>

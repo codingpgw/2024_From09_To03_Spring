@@ -6,12 +6,14 @@
 <!DOCTYPE html>
 <html>  
 <head>
+<meta charset="UTF-8">
 <link rel="shortcut icon" href="${CP}/resources/images/favicon.ico" type="image/x-icon" >
+<link rel="stylesheet" href="${CP}/resources/assets/css/simplemde.min.css">
+<title>회원등록</title>
 <link rel="stylesheet" href="/ehr/resources/assets/css/user/reg.css?=<%=new Date()%>">
 <link rel="stylesheet" href="/ehr/resources/assets/css/main/main.css?=<%=new Date()%>">
-<meta charset="UTF-8">
-<title>회원등록</title>
 
+<script src="${CP}/resources/assets/js/simplemde.min.js"></script>
 <script src="/ehr/resources/assets/js/jquery_3_7_1.js"></script>  <!-- jquery    -->
 <script src="/ehr/resources/assets/js/cmn/common.js"></script>    <!-- 공통 util -->
 <script src="/ehr/resources/assets/js/user/user_reg.js"></script> <!-- 서버 전송 -->

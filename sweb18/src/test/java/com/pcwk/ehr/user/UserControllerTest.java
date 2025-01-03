@@ -79,8 +79,8 @@ class UserControllerTest {
 		
 		MockHttpServletRequestBuilder requestBuilder
 		= MockMvcRequestBuilders.get("/user/doRetrieve.do")
-			.param("pageSize", "")
-			.param("pageNo", "")
+			.param("pageSize", "10")
+			.param("pageNo", "1")
 			.param("searchDiv", "")
 			.param("searchWord", "");
 		

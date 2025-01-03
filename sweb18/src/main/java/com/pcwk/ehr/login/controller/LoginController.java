@@ -8,9 +8,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -33,11 +35,14 @@ public class LoginController {
 	}
 	
 	@GetMapping("/login_index.do")
-	public String loginIndex() {
+	public String loginIndex(Model model, @RequestParam (name = "retUrl", defaultValue = "")String returnUrl) {
 		String viewName = "login/login";
 		log.debug("┌───────────────────────────────────────┐");
 		log.debug("│ **loginIndex()**                      │");
 		log.debug("└───────────────────────────────────────┘");
+		
+		log.debug("returnUrl:{}",returnUrl);
+		model.addAttribute("returnUrl", returnUrl);
 		
 		return viewName;
 	}
@@ -88,7 +93,11 @@ public class LoginController {
 			flag = 99;
 			message = "오류가 발생했습니다. 다시 시도해주세요.";
 		}
-		jsonString = new Gson().toJson(new MessageVO(flag, message));
+		MessageVO messageVO = new MessageVO(flag, message);
+		
+		messageVO.setReturnUrl(user.getReturnUrl());
+		
+		jsonString = new Gson().toJson(messageVO);
 		log.debug("jsonString:{}", jsonString);
 		
 		return jsonString;

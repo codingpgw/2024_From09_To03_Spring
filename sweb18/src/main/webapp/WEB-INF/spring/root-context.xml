@@ -1,13 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:aop="http://www.springframework.org/schema/aop"
-    xmlns:context="http://www.springframework.org/schema/context"
-    xmlns:tx="http://www.springframework.org/schema/tx"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
-        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
-        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+    
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactoryBean"/>
+    </bean>
+    
+    <!--mybatis-config.xml, mapper  -->
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/> 
+        <!--mybatis-config-->
+        <property name="configLocation"   value="classpath:mybatis-config.xml"/>
+        <!-- mapper설정 -->
+        <property name="mapperLocations"  value="classpath:mapper/**/*.xml"/>
+    </bean>
+    
+    <!-- fileupload 
+         ID 변경하면 않됨
+         10 * 1024 * 1024 : 10485760(byte)
+         
+         maxUploadSize : 파일 업로드 max 사이즈
+         maxInMemorySize : 디스크에 저장하기 전 임시 파일을 생성하기 전 메모리 보관 최대 크기(byte)
+    -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="maxUploadSize" value="10485760"></property>
+        <property name="maxInMemorySize" value="20480"></property>
+    </bean>    
+    
+    
     <!--  -->
     <tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager"/>
     
