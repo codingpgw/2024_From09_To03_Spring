@@ -1,0 +1,147 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap');
+
+.content-title h2 {
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 1.5em;
+}
+
+table.data-table {
+  width: 100%;
+  font-size: .9em;
+  box-shadow: 0 2px 5px rgba(0,0,0,.25);
+  border-collapse: collapse;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+table.data-table thead th {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+thead {
+  font-weight: bold;
+  color: #fff;
+  background: #4A628A;
+}
+  
+.data-table td, .data-table th {
+  padding: 1em 1.5em;
+  vertical-align: middle;
+}
+
+th {
+  text-align: center;
+  
+}
+  
+td, tbody th {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  background: #fff;
+  text-align: center;
+}
+
+.table-cell {
+  white-space: nowrap;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #4A628A;
+}
+
+.search-form {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.search-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.search-group select:focus {
+  border: 1px solid ;
+}
+
+.search-group select,
+.search-group input,
+.search-group input[type="button"] {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.search-group input[type="button"] {
+  background-color: #4A628A;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-group input[type="button"]:hover {
+  background-color: #32415c;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  font-size: 16px;
+  gap: 5px;
+}
+
+.pagination a {
+  display: inline-block;
+  width: 50px;
+  text-align: center;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #4A628A;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.pagination a:hover {
+  background-color: #4A628A;
+  color: #ffffff;
+  border-color: #4A628A;
+}
+
+/* .pagination a.active{ 
+  background-color: #007bff;
+  color: #ffffff;
+  border-color: #007bff;
+}  */
+
+.pagination a.disabled {
+  background-color: #f8f9fa;
+  color: #000;
+  pointer-events: none;
+  border-color: #dddddd;
+  cursor: not-allowed;
+}

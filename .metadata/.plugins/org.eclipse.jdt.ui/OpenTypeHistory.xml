@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-<typeInfo handle="=project/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.pcwk.ehr.cmn{DTO.java[DTO" modifiers="1" timestamp="1735396664000"/>
-<typeInfo handle="=project/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.pcwk.ehr.hospital.dao{HospitalDao.java[HospitalDao" modifiers="513" timestamp="1735392634000"/>
 <typeInfo handle="=sweb18/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.pcwk.ehr.board.dao{BoardDao.java[BoardDao" modifiers="513" timestamp="1735192954552"/>
 <typeInfo handle="=sweb18/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.pcwk.ehr.board.service{BoardService.java[BoardService" modifiers="513" timestamp="1735191936344"/>
-<typeInfo handle="=project/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.pcwk.ehr.community.dao{CommunityDao.java[CommunityDao" modifiers="513" timestamp="1735397650000"/>
-<typeInfo handle="=project/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.pcwk.ehr.community.service{CommunityService.java[CommunityService" modifiers="513" timestamp="1735397932000"/>
 <typeInfo handle="=sweb18/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.pcwk.ehr.markdown.service{MarkdownService.java[MarkdownService" modifiers="513" timestamp="1735524759272"/>
-<typeInfo handle="=project/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.pcwk.ehr.email.dao{EmailDao.java[EmailDao" modifiers="513" timestamp="1735807420937"/>
 <typeInfo handle="=sweb18/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.pcwk.ehr.cmn{DTO.java[DTO" modifiers="1" timestamp="1735269452763"/>
-<typeInfo handle="=project/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.pcwk.ehr.email.service{EmailService.java[EmailService" modifiers="513" timestamp="1735807446218"/>
+<typeInfo handle="=sweb18/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.pcwk.ehr.mymapper.dao{MyMapperDao.java[MyMapperDao" modifiers="513" timestamp="1735866858729"/>
 </typeInfoHistroy>

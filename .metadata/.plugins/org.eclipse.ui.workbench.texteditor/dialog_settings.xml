@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="mybatis"/>
+		<item key="selection" value="SELECT COUNT"/>
 		<list key="findhistory">
+			<item value="select count"/>
 			<item value="mybatis"/>
 			<item value="mybas"/>
 			<item value="quartz-jobs"/>
@@ -22,7 +23,6 @@
 			<item value="searchWord"/>
 			<item value="searchDiv"/>
 			<item value="/user"/>
-			<item value="/use"/>
 		</list>
 		<list key="replacehistory">
 			<item value="cmn_div"/>

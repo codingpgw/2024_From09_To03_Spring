@@ -64,7 +64,6 @@ class UserControllerTest {
 		userVO01 = new UserVO("james01", "이상무01", "4321", "사용하지 않음", 1, 0, Level.BASIC, "jamesol@paran.com");
 	}
 	
-	
 	@Test
 	public void doRetrieve() throws Exception {
 		log.debug("┌───────────────────────────────────┐");

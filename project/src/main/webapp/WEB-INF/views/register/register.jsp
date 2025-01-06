@@ -75,7 +75,7 @@
 					    <label for="authCode">인증 번호</label>
 					    <input class="infoBox" placeholder="인증 코드 6자리를 입력해주세요." maxlength="6" disabled="disabled" name="authCode" id="authCode" type="text" autofocus>
 					    <input type="button" value="인증확인" id="verifyCode" disabled="disabled">
-					    <input type="button" value="다시받기" id="retry">
+					    <input type="button" value="재전송" id="retry">
 					</div>
 					<span id="emailAuthWarn"></span>
 					<span id="timer" style="display: none; color: red; font-size: 0.9em;"></span>

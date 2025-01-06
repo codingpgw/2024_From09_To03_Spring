@@ -104,7 +104,7 @@ public class RegisterController {
 		
 	    int flag = registerService.idPassValidation(member); // 중복 체크 서비스 호출
 	    String message = (flag == 10) ? "아이디가 중복되었습니다." : "사용 가능한 아이디입니다.";
-	    
+
 	    MessageVO messageVO = new MessageVO(flag, message);
 	    String jsonString = new Gson().toJson(messageVO);
 	    

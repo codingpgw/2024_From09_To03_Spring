@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let isIdValid = false;    // 아이디 중복 여부
   let pwCheckValid = false; // 비밀번호 중복 여부
 
+  //---------------------------------------------------------------------------------------------------------------------
+  //이메일 가입완료 버튼 누르기 후 해당 이메일의 코드 삭제 함수
   function deleteCode(){
     $.ajax({
       type: "POST",
@@ -42,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  //재전송 버튼 입력시 다시 저장해주는 함수
   function retryCode(){
     $.ajax({
       type: "POST",
@@ -63,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+  //---------------------------------------------------------------------------------------------------------------------
 
   // 아이디 중복 확인
   checkIdButton.addEventListener("click", function (event) {
@@ -104,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
       error: function (response) {
         console.log("error:" + response);
         alert("아이디 중복 체크 중 오류가 발생했습니다.");
-        memIdCheckMessage.className = "error-message";
+        //memIdCheckMessage.className = "error-message";
         idCheckMessage.style.color = "red";
         idCheckInput.style.borderColor = "red";
         isIdValid = false;
@@ -246,6 +250,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  //---------------------------------------------------------------------------------------------------------------------
+  //이메일 인증받기 버튼 누른 직후 바로 입력된 이메일로 전송해주는 함수
   function sendMail(){
     $.ajax({
       url : '/ehr/register/emailAuth.do',
@@ -260,6 +266,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  //인증 받기 입력시 데이터베이스에 저장하는 함수
   emailAuthBtn.addEventListener('click',function(e){
     console.log(emailInput.value);
 
@@ -282,7 +289,7 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log("error:" + response);
       }
     });
-
+    //버튼 입력시 타이머 체크
     const timerElement = document.getElementById('timer');
     timerElement.style.display = 'block'; // 타이머 표시
     let timeRemaining = 300; // 5분 = 300초
@@ -304,7 +311,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 1000);
 
   });
-
+  //재전송 버튼 입력시 처리하는 ajax
   document.getElementById('retry').addEventListener('click',function(){
     $.ajax({
       type: "POST",
@@ -325,6 +332,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   });
 
+  //확인하기 입력시 처리해주는 ajax
   document.getElementById('verifyCode').addEventListener('click', function() {
       const inputCode = document.getElementById('authCode').value; //인증번호 입력 칸에 작성한 내용 가져오기
       const email = emailInput.value; // 이메일 입력 칸에 작성한 내용 가져오기
@@ -358,7 +366,9 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 
+  //---------------------------------------------------------------------------------------------------------------------
 
+  
 //   const codeInput = document.querySelector('#authCode');
 //   codeInput.addEventListener('click', function() {
 

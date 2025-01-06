@@ -389,7 +389,7 @@ public class MemberDaoJdbc implements MemberDao {
 		StringBuilder sb = new StringBuilder(50);
 		sb.append(" SELECT COUNT(*) cnt   \n");
 		sb.append(" FROM member           \n");
-		sb.append(" WHERE mem_id = ?   \n");
+		sb.append(" WHERE mem_id = ?      \n");
 		
 		log.debug("1. param: " + inVO);
 		log.debug("2. sql:\n" + sb.toString());

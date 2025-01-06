@@ -57,6 +57,7 @@ public class UserDaoJUnit {
 		search=new SearchVO();
 	}
 	
+	@Disabled
 	@Test
 	public void login() throws SQLException {
 		dao.deleteAll();
@@ -254,7 +255,7 @@ public class UserDaoJUnit {
 
 	}
 
-	@Disabled
+	//@Disabled
 	@Test
 	public void getCount() throws SQLException {
 		// 매번 동일 결과가 도출 되도록 작성.
@@ -313,24 +314,23 @@ public class UserDaoJUnit {
 		// 0
 		dao.deleteAll();
 
-		// 1. 삭제 건수: 0건
-		int count = dao.getCount();
-		assertEquals(0, count);
-
-		// 2. 단건등록
+		
+		// 1. 삭제 건수: 0건 
+		int count = dao.getCount(); assertEquals(0, count);
+		
+		// 2. 단건등록 
 		dao.doSave(userVO01);
-
-		// 3. 등록건수 조회
-		count = dao.getCount();
-		assertEquals(1, count);
-
-		// 4.
-		UserVO outVO01 = dao.doSelectOne(userVO01);
-		// Not Null 확인
+		
+		// 3. 등록건수 조회 
+		count = dao.getCount(); assertEquals(1, count);
+		
+		// 4. 
+		UserVO outVO01 = dao.doSelectOne(userVO01); // Not Null 확인
 		assertNotNull(outVO01);
-
-		// 5.
+		
+		// 5. 
 		isSameUser(outVO01, userVO01);
+		
 
 	}
 
